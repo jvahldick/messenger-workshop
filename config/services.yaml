@@ -32,3 +32,7 @@ services:
     App\CommandHandler\:
         resource: '../src/CommandHandler/*'
         tags: ['messenger.message_handler']
+
+    App\QueryHandler\:
+        resource: '../src/QueryHandler/*'
+        tags: ['messenger.message_handler']
