@@ -43,4 +43,19 @@
     {% endfor %}
     </tbody>
 </table>
+
+<h1>Report actual game result</h1>
+<form action="{{ path('report_game_result') }}" method="post">
+    <p>
+        <input type="text" name="game" placeholder="Game. FRABRE for France-Brasil for example." required />
+    </p>
+    <p>
+        <input type="number" name="left-score" placeholder="Left score" required />
+    </p>
+    <p>
+        <input type="number" name="right-score" placeholder="Right score" required />
+    </p>
+
+    <button type="submit">Bet</button>
+</form>
 {% endblock %}
