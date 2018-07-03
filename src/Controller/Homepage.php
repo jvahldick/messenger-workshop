@@ -52,6 +52,6 @@ class Homepage extends Controller
             $request->get('right-score')
         ));
 
-        return $this->redirectToRoute('home');
+        return $this->render('reported.html.twig');
     }
 }
