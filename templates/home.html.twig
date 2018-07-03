@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<h1>Register a bet</h1>
+<form action="{{ path('register_bet') }}" method="post">
+    <p>
+        <input type="email" name="email" placeholder="Your email" required />
+    </p>
+    <p>
+        <input type="text" name="game" placeholder="Game. FRABRE for France-Brasil for example." required />
+    </p>
+    <p>
+        <input type="number" name="left-score" placeholder="Left score" required />
+    </p>
+    <p>
+        <input type="number" name="right-score" placeholder="Right score" required />
+    </p>
+
+    <button type="submit">Bet</button>
+</form>
+{% endblock %}
