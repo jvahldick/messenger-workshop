@@ -17,4 +17,30 @@
 
     <button type="submit">Bet</button>
 </form>
+
+<h1>Registered bets</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Who</th>
+        <th>Game</th>
+        <th>Left</th>
+        <th>Right</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for bet in bets %}
+    <tr>
+        <td>{{ bet.username }}</td>
+        <td>{{ bet.game }}</td>
+        <td>{{ bet.leftScore }}</td>
+        <td>{{ bet.rightScore }}</td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="4">Nothing yet.</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
