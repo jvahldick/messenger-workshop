@@ -12,10 +12,12 @@ use Symfony\Component\Messenger\MessageBusInterface;
 class ReportGameResultHandler
 {
     private $bus;
+    private $eventBus;
 
-    public function __construct(MessageBusInterface $bus)
+    public function __construct(MessageBusInterface $bus, MessageBusInterface $eventBus)
     {
         $this->bus = $bus;
+        $this->eventBus = $eventBus;
     }
 
     public function __invoke(ReportGameResult $command)
@@ -24,7 +26,7 @@ class ReportGameResultHandler
         $bets = $this->bus->dispatch(GetBets::forGame($command->getGame()));
 
         foreach ($bets as $bet) {
-            $this->bus->dispatch(
+            $this->eventBus->dispatch(
                 $this->isWinning($bet, $command) ? new WonBet($bet) : new LostBet($bet)
             );
         }
