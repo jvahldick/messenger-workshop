@@ -68,6 +68,15 @@
     "egulias/email-validator": {
         "version": "2.1.4"
     },
+    "enqueue/amqp-ext": {
+        "version": "0.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.8",
+            "ref": "b1c9aa7b70ea9be85683cf2af5c10472240bb109"
+        }
+    },
     "enqueue/amqp-tools": {
         "version": "0.8.23"
     },
