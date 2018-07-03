@@ -3,7 +3,10 @@ framework:
         default_bus: commands_and_queries_bus
 
         buses:
-            commands_and_queries_bus: ~
+            commands_and_queries_bus:
+                middleware:
+                    - 'App\Middleware\AuditMiddleware'
+
             events_bus:
                 middleware:
                     - 'messenger.middleware.allow_no_handler'
