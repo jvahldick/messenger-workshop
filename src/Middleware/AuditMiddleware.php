@@ -18,16 +18,22 @@ class AuditMiddleware implements MiddlewareInterface, EnvelopeAwareInterface
     {
         $message = $envelope->getMessage();
 
+        if (null === $auditEnvelope = $envelope->get(AuditEnvelopeItem::class)) {
+            $envelope = $envelope->with(
+                $auditEnvelope = new AuditEnvelopeItem(uniqid())
+            );
+        }
+
         try {
             if (null !== $envelope->get(ReceivedMessage::class)) {
-                echo sprintf('Received message "%s"' . "\n", get_class($message));
+                echo sprintf('[%s] Received message "%s"' . "\n", $auditEnvelope->getUuid(), get_class($message));
             } else {
-                echo sprintf('Started with message "%s"' . "\n", get_class($message));
+                echo sprintf('[%s] Started with message "%s"' . "\n", $auditEnvelope->getUuid(), get_class($message));
             }
 
-            return $next($message);
+            return $next($envelope);
         } finally {
-            echo sprintf('Ended with message "%s"'."\n", get_class($message));
+            echo sprintf('[%s] Ended with message "%s"'."\n", $auditEnvelope->getUuid(), get_class($message));
         }
     }
 }
