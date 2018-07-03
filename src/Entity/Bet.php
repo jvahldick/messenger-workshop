@@ -19,6 +19,11 @@ class Bet
     /**
      * @ORM\Column
      */
+    public $username;
+
+    /**
+     * @ORM\Column
+     */
     public $game;
 
     /**
