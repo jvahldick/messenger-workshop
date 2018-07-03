@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Command\RegisterBet;
+use App\Command\ReportGameResult;
 use App\Query\GetBets;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,6 +33,20 @@ class Homepage extends Controller
         $tokenStorage->setToken(new UsernamePasswordToken($request->get('email'), null, 'main'));
 
         $bus->dispatch(new RegisterBet(
+            $request->get('game'),
+            $request->get('left-score'),
+            $request->get('right-score')
+        ));
+
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/report-game-result", methods={"POST"}, name="report_game_result")
+     */
+    public function reportGameResult(Request $request, MessageBusInterface $bus)
+    {
+        $bus->dispatch(new ReportGameResult(
             $request->get('game'),
             $request->get('left-score'),
             $request->get('right-score')
