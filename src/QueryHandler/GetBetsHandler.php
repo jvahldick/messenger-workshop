@@ -17,6 +17,10 @@ class GetBetsHandler
 
     public function __invoke(GetBets $query)
     {
-        return $this->registry->getEntityManager()->getRepository(Bet::class)->findAll();
+        $repository = $this->registry->getEntityManager()->getRepository(Bet::class);
+
+        return $query->getGame() === null ? $repository->findAll() : $repository->findBy([
+            'game' => $query->getGame(),
+        ]);
     }
 }
