@@ -4,6 +4,8 @@ namespace App\CommandHandler;
 
 use App\Command\ReportGameResult;
 use App\Entity\Bet;
+use App\Event\LostBet;
+use App\Event\WonBet;
 use App\Query\GetBets;
 use Symfony\Component\Messenger\MessageBusInterface;
 
@@ -20,6 +22,16 @@ class ReportGameResultHandler
     {
         /** @var Bet[] $bets */
         $bets = $this->bus->dispatch(GetBets::forGame($command->getGame()));
-        dd($bets);
+
+        foreach ($bets as $bet) {
+            $this->bus->dispatch(
+                $this->isWinning($bet, $command) ? new WonBet($bet) : new LostBet($bet)
+            );
+        }
+    }
+
+    private function isWinning(Bet $bet, ReportGameResult $command)
+    {
+        return $bet->leftScore === $command->getLeftScore() && $bet->rightScore === $command->getRightScore();
     }
 }
