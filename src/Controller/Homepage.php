@@ -5,22 +5,22 @@ namespace App\Controller;
 use App\Command\RegisterBet;
 use App\Command\ReportGameResult;
 use App\Query\GetBets;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
-class Homepage extends Controller
+class Homepage extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function home(MessageBusInterface $bus)
+    public function home()
     {
         return $this->render('home.html.twig', [
-            'bets' => $bus->dispatch(new GetBets()),
+            'bets' => $this->dispatchMessage(new GetBets()),
         ]);
     }
 
