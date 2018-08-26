@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Command\RegisterBet;
 use App\Command\ReportGameResult;
+use App\Query\GetAllBets;
 use App\Query\GetBets;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +21,7 @@ class Homepage extends AbstractController
     public function home()
     {
         return $this->render('home.html.twig', [
-            'bets' => $this->dispatchMessage(new GetBets()),
+            'bets' => $this->dispatchMessage(new GetAllBets()),
         ]);
     }
 

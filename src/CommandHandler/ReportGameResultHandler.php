@@ -7,6 +7,7 @@ use App\Entity\Bet;
 use App\Event\LostBet;
 use App\Event\WonBet;
 use App\Query\GetBets;
+use App\Query\GetBetsPerGame;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 class ReportGameResultHandler
@@ -23,7 +24,7 @@ class ReportGameResultHandler
     public function __invoke(ReportGameResult $command)
     {
         /** @var Bet[] $bets */
-        $bets = $this->bus->dispatch(GetBets::forGame($command->getGame()));
+        $bets = $this->bus->dispatch(new GetBetsPerGame($command->getGame()));
 
         foreach ($bets as $bet) {
             $this->eventBus->dispatch(
