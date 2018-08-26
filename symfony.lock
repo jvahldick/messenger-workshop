@@ -41,6 +41,9 @@
             "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
         }
     },
+    "doctrine/event-manager": {
+        "version": "1.0.x-dev"
+    },
     "doctrine/inflector": {
         "version": "v1.3.0"
     },
@@ -55,6 +58,12 @@
     },
     "doctrine/orm": {
         "version": "v2.6.1"
+    },
+    "doctrine/persistence": {
+        "version": "1.0.x-dev"
+    },
+    "doctrine/reflection": {
+        "version": "1.0.x-dev"
     },
     "easycorp/easy-log-handler": {
         "version": "1.0",
@@ -140,6 +149,9 @@
             "ref": "e3868d2f4a5104f19f844fe551099a00c6562527"
         }
     },
+    "symfony/contracts": {
+        "version": "1.0-dev"
+    },
     "symfony/css-selector": {
         "version": "v4.1.1"
     },
@@ -214,9 +226,6 @@
     },
     "symfony/intl": {
         "version": "v4.1.1"
-    },
-    "symfony/lts": {
-        "version": "4-dev"
     },
     "symfony/maker-bundle": {
         "version": "1.0",
@@ -296,9 +305,6 @@
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
     },
-    "symfony/security": {
-        "version": "v4.1.1"
-    },
     "symfony/security-bundle": {
         "version": "3.3",
         "recipe": {
@@ -307,6 +313,18 @@
             "version": "3.3",
             "ref": "f8a63faa0d9521526499c0a8f403c9964ecb0527"
         }
+    },
+    "symfony/security-core": {
+        "version": "4.2-dev"
+    },
+    "symfony/security-csrf": {
+        "version": "4.2-dev"
+    },
+    "symfony/security-guard": {
+        "version": "4.2-dev"
+    },
+    "symfony/security-http": {
+        "version": "4.2-dev"
     },
     "symfony/serializer": {
         "version": "v4.1.1"
@@ -397,8 +415,5 @@
     },
     "zendframework/zend-code": {
         "version": "3.3.0"
-    },
-    "zendframework/zend-eventmanager": {
-        "version": "3.2.1"
     }
 }
