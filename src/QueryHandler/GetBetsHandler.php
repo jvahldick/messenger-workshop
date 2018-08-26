@@ -4,6 +4,7 @@ namespace App\QueryHandler;
 
 use App\Entity\Bet;
 use App\Query\GetBets;
+use App\Query\GetBetsPerGame;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class GetBetsHandler
@@ -19,8 +20,12 @@ class GetBetsHandler
     {
         $repository = $this->registry->getEntityManager()->getRepository(Bet::class);
 
-        return $query->getGame() === null ? $repository->findAll() : $repository->findBy([
-            'game' => $query->getGame(),
-        ]);
+        if ($query instanceof GetBetsPerGame) {
+            return $repository->findBy([
+                'game' => $query->getGame(),
+            ]);
+        }
+
+        return $repository->findAll();
     }
 }
