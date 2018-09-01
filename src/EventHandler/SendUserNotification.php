@@ -13,10 +13,8 @@ class SendUserNotification implements MessageSubscriberInterface
      */
     public static function getHandledMessages(): iterable
     {
-        return [
-            WonBet::class,
-            LostBet::class,
-        ];
+        yield WonBet::class => ['bus' => 'events_bus'];
+        yield LostBet::class => ['bus' => 'events_bus'];
     }
 
     public function __invoke($event)
