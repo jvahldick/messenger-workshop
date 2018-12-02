@@ -6,6 +6,7 @@ use App\Command\RegisterBet;
 use App\Command\ReportGameResult;
 use App\Query\GetAllBets;
 use App\Query\GetBets;
+use App\QueryBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -15,13 +16,20 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class Homepage extends AbstractController
 {
+    private $queryBus;
+
+    public function __construct(QueryBus $queryBus)
+    {
+        $this->queryBus = $queryBus;
+    }
+
     /**
      * @Route("/", name="home")
      */
     public function home()
     {
         return $this->render('home.html.twig', [
-            'bets' => $this->dispatchMessage(new GetAllBets()),
+            'bets' => $this->queryBus->query(new GetAllBets()),
         ]);
     }
 

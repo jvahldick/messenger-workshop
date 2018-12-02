@@ -2,9 +2,9 @@
 
 namespace App\Middleware;
 
-use Symfony\Component\Messenger\EnvelopeItemInterface;
+use Symfony\Component\Messenger\Stamp\StampInterface;
 
-class AuditEnvelopeItem implements EnvelopeItemInterface
+class AuditEnvelopeItem implements StampInterface
 {
     private $uuid;
 

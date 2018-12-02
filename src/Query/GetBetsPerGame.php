@@ -2,7 +2,7 @@
 
 namespace App\Query;
 
-class GetBetsPerGame implements GetBets
+class GetBetsPerGame extends GetBets
 {
     private $game;
 

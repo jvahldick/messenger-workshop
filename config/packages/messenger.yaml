@@ -8,8 +8,8 @@ framework:
                     - 'App\Middleware\AuditMiddleware'
 
             events_bus:
-                middleware:
-                    - 'messenger.middleware.allow_no_handler'
+#                middleware:
+#                    - 'messenger.middleware.allow_no_handler'
 
         transports:
             # Uncomment the following line to enable a transport named "amqp"

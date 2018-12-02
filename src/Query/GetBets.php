@@ -2,6 +2,12 @@
 
 namespace App\Query;
 
-interface GetBets
+abstract class GetBets
 {
+    private $bets = [];
+
+    public function getBets(): array
+    {
+        return $this->bets;
+    }
 }

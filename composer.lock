@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "618bdd5ac1c4818048fa7200b7ea4df7",
+    "content-hash": "96d889b32f931dff956d32968315d1ab",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -4556,22 +4556,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "ac031dd6b5a8a109fbff5cbc7f754f042e35c894"
+                "reference": "cc69fc9208c085a5bcbd40bbc025f3b89b8b72c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/ac031dd6b5a8a109fbff5cbc7f754f042e35c894",
-                "reference": "ac031dd6b5a8a109fbff5cbc7f754f042e35c894",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/cc69fc9208c085a5bcbd40bbc025f3b89b8b72c3",
+                "reference": "cc69fc9208c085a5bcbd40bbc025f3b89b8b72c3",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
+                "symfony/contracts": "^1.0",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
                 "symfony/config": "<3.4",
                 "symfony/dependency-injection": "<3.4",
                 "symfony/yaml": "<3.4"
+            },
+            "provide": {
+                "symfony/translation-contracts-implementation": "1.0"
             },
             "require-dev": {
                 "psr/log": "~1.0",
@@ -4617,7 +4621,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-08-08T07:59:30+00:00"
+            "time": "2018-10-10T19:30:04+00:00"
         },
         {
             "name": "symfony/twig-bridge",
@@ -5991,6 +5995,66 @@
             "time": "2018-08-03T11:20:06+00:00"
         },
         {
+            "name": "symfony/var-exporter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-exporter.git",
+                "reference": "656cfea868a6fe22f9bbb771bfba4c9da8891528"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/656cfea868a6fe22f9bbb771bfba4c9da8891528",
+                "reference": "656cfea868a6fe22f9bbb771bfba4c9da8891528",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "symfony/var-dumper": "^4.1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\VarExporter\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A blend of var_export() + serialize() to turn any serializable data structure to plain PHP code",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "clone",
+                "construct",
+                "export",
+                "hydrate",
+                "instantiate",
+                "serialize"
+            ],
+            "time": "2018-09-18T15:22:26+00:00"
+        },
+        {
             "name": "symfony/web-profiler-bundle",
             "version": "dev-master",
             "source": {
@@ -6121,19 +6185,20 @@
         "symfony/asset": 20,
         "symfony/config": 20,
         "symfony/console": 20,
+        "symfony/contracts": 20,
+        "symfony/dependency-injection": 20,
         "symfony/expression-language": 20,
-        "symfony/http-kernel": 20,
         "symfony/form": 20,
         "symfony/framework-bundle": 20,
+        "symfony/http-kernel": 20,
         "symfony/messenger": 20,
         "symfony/process": 20,
         "symfony/security-bundle": 20,
+        "symfony/translation": 20,
         "symfony/twig-bundle": 20,
         "symfony/validator": 20,
         "symfony/web-link": 20,
-        "symfony/dependency-injection": 20,
         "symfony/yaml": 20,
-        "symfony/contracts": 20,
         "symfony/dotenv": 20,
         "symfony/web-server-bundle": 20
     },

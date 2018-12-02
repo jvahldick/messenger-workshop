@@ -2,6 +2,6 @@
 
 namespace App\Query;
 
-class GetAllBets implements GetBets
+class GetAllBets extends GetBets
 {
 }
