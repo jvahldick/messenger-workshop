@@ -2,20 +2,14 @@
 
 namespace App\Message;
 
+use App\Entity\Bet;
+
 class RegisterBet
 {
-    public $game;
-    public $leftScore;
-    public $rightScore;
+    public $bet;
 
-    public function __construct(
-        string $game,
-        int $leftScore,
-        int $rightScore
-    )
+    public function __construct(Bet $bet)
     {
-        $this->game = $game;
-        $this->leftScore = $leftScore;
-        $this->rightScore = $rightScore;
+        $this->bet = $bet;
     }
 }

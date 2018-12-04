@@ -19,4 +19,10 @@
     </p>
     <button type="submit">Register Bet</button>
 </form>
+
+<ul>
+{% for bet in bets %}
+    <li>{{ bet.leftScore }} - {{ bet.game }} - {{ bet.rightScore }}</li>
+{% endfor %}
+</ul>
 {% endblock %}
