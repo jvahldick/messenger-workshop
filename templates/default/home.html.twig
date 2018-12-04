@@ -25,4 +25,22 @@
     <li>{{ bet.leftScore }} - {{ bet.game }} - {{ bet.rightScore }}</li>
 {% endfor %}
 </ul>
+<hr />
+<h2>Report result</h2>
+<form method="post" action="{{ path('report-results') }}">
+    <p>
+        <label>Game</label>
+        <input type="text" name="game" />
+    </p>
+    <p>
+        <label>Left Score</label>
+        <input type="text" name="leftScore" />
+    </p>
+    <p>
+        <label>Right Score</label>
+        <input type="text" name="rightScore" />
+    </p>
+    <button type="submit">Report</button>
+</form>
+
 {% endblock %}
